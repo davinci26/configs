@@ -2,5 +2,5 @@
 
 Random scripts/utility that includes:
  - C++ template CMAKE
- - Python scripts
+ - Utility Shell/bat scripts
  - gitignore files for C++, Python
