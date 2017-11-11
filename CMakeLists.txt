@@ -23,11 +23,11 @@ file(GLOB_RECURSE sources src/*.cpp src/*.c src/*.hpp src/*.h)
 ################################
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
-    target_link_libraries(sounding_lib)
+    target_link_libraries(project_lib)
 endif()
-add_library(sounding_lib ${sources})
-add_executable(sounding_exec mains/main.cpp ${sources})
-target_link_libraries(sounding_exec sounding_lib)
+add_library(project_lib ${sources})
+add_executable(project_exec mains/main.cpp ${sources})
+target_link_libraries(project_exec project_lib)
 ################################
 # Testing
 ################################
@@ -49,9 +49,9 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 ##############
 # Unit Tests
 ##############
-add_executable(runUnitTests mains/sounding_test.cpp)
+add_executable(runUnitTests mains/main_testing.cpp)
 # Standard linking to gtest stuff.
 target_link_libraries(runUnitTests gtest gtest_main)
 # Extra linking for the project.
-target_link_libraries(runUnitTests sounding_lib)
+target_link_libraries(runUnitTests project_lib)
 endif()
